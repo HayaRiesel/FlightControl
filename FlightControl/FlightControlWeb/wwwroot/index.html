@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>flight control</title>
+    <link rel="icon" type="image/png" href="img/plan.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="" />
+
+    <link rel="stylesheet" type="text/css" href="indexstyle.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+
+</head>
+<body style="background-color:black;">
+    <h style="font-size:1.5vw;color:#2F3D3D;position:fixed" class="bottom-right-header">Flight Control Web created by: Yael Haya and Hodaya</h>
+    <div class="container space">
+
+
+        <div class="row">
+            <div class="col-8 space">
+                <div id="mapid" class="space"></div>
+                <div id="moreDetails" width="100%" style="min-height:120px" class="bg-dark text-white">
+                    <div class="row">
+                        <div class="col-6">
+                            <p id="pasengers"></p>
+                        </div>
+                        <div class="col-6">
+                            <p id="company_name"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p id="start_point"></p>
+                        </div>
+                        <div class="col-6">
+                            <p id="end_point"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p id="start_time"></p>
+                        </div>
+                        <div class="col-6">
+                            <p id="end_time"></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-8">
+                        <span id="errorDetails" class="d-block p-2 bg-dark text-white"><br></span>
+                    </div>
+                    <div class="col-4" style="margin-top: 10px">
+                        <span id="datetime" style="color:white;background-color:black;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div style="margin-bottom:20px"></div>
+                <span style="font-size:15px;margin-bottom:10px;background-color:#546e7a;" class="d-block  p-2  text-white">My Flight</span>
+                <table class="table table-sm table-success table-hover tableSize table-bordered table-dark " id="myFlightTable">
+
+                    <thead>
+                        <tr>
+                            <th class="first-td" scope="col"></th>
+                            <th class="second-td" scope="col">ID Flight</th>
+                            <th class="third-td" scope="col">Airline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div></div>
+                <span style="font-size:15px;margin-bottom:10px;background-color:#546e7a;" class="d-block  p-2  text-white">External Flight</span>
+                <table class="table table-sm table-success table-hover tableSize table-bordered table-dark" id="allFlightTable">
+
+                    <thead>
+                        <tr>
+                            <td class="first-td" scope="col"></td>
+                            <th class="second-td" scope="col">ID Flight</th>
+                            <th class="third-td" scope="col">Airline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div>
+                    <input type="file" id="fileElem" accept="application/json" onclick="this.value=null;" style="display:none">
+                    <button id="fileSelect" type="button" class="btn btn-dark">upload flight plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap CSS -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="js/globalVar.js"></script>
+    <script type="text/javascript" src="js/clickFlight.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
+    <script type="text/javascript" src="js/handleError.js"></script>
+    <script type="text/javascript" src="js/mapScript.js"></script>
+    <script type="text/javascript" src="js/table.js"></script>
+    <script type="text/javascript" src="js/uploadFile.js"></script>
+    <script type="text/javascript" src="js/mainScript.js"></script>
+    <script type="text/javascript" src="js/deleteFlight.js"></script>
+
+
+
+
+</body>
+</html>
+
+

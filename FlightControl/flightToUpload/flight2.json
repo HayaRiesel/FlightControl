@@ -1,0 +1,21 @@
+{
+    "passengers": 242,
+    "company_name": "Digigen Airlines",
+    "initial_location": {
+        "latitude": 35,
+        "longitude": 50,
+        "date_time": "2020-09-29T11:02:57Z"
+    },
+    "segments": [
+        {
+            "longitude": 40,
+            "latitude": 55,
+            "timespan_seconds": 917
+        },
+        {
+            "longitude": 45,
+            "latitude": 60,
+            "timespan_seconds": 493
+        }
+    ]
+}
